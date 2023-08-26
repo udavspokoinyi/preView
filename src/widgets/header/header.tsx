@@ -1,5 +1,5 @@
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/navbar";
-import {Link} from '@nextui-org/link' 
+import Link from 'next/link' 
 import {DropdownItem, DropdownTrigger, Dropdown, DropdownMenu} from '@nextui-org/dropdown' 
 import {Avatar} from '@nextui-org/avatar'
 export default function Header(){
@@ -11,7 +11,7 @@ export default function Header(){
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/">
             Главная
           </Link>
         </NavbarItem>
