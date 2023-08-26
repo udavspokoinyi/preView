@@ -2,7 +2,7 @@ import { Card, CardHeader, CardBody } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
 import Link from "next/link";
 import UiButton from "@/shared/ui/button";
-export default function ShopCard(props: {title:string, text:string}) {
+export default function ShopCard(props: {title:string, text:string, id:number}) {
   
   return (
     <Card className="py-4 max-w-[400px] w-full gap-5">
@@ -12,7 +12,7 @@ export default function ShopCard(props: {title:string, text:string}) {
       <CardBody className="overflow-visible py-2">
         {props.text}
       </CardBody>
-      <Link className="text-center" href={'/'+props.title}><UiButton>Читать подробнее</UiButton></Link>
+      <Link className="text-center" href={'/'+props.id}><UiButton>Читать подробнее</UiButton></Link>
     </Card>
   )
 }

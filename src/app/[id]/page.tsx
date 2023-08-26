@@ -4,15 +4,16 @@ import ShopCard from "@/entities/card";
 import Container from "@/shared/ui/container";
 import ArticleHeader from "@/shared/ui/articleHeader";
 import ArticleBody from "@/shared/ui/articleBody/articleBody";
-export default async function ViewPage({params}:{params:{name:string}}) {
+export default async function ViewPage({params}:{params:{id:number}}) {
+    const data = await Pockemon(params.id)
     console.log(params)
-    const data = await Pockemon(params.name)
+    console.log(data)
     return (
         <main>
             <Container>
                 <div className="w-full flex flex-col gap-12 mt-40">
-                <ArticleHeader></ArticleHeader>
-                <ArticleBody>{data.weight}</ArticleBody>
+                <ArticleHeader>{data.id}</ArticleHeader>
+                <ArticleBody>{data.body}</ArticleBody>
                 </div>
             </Container>
 
@@ -20,7 +21,8 @@ export default async function ViewPage({params}:{params:{name:string}}) {
     )
 }
 
-async function Pockemon(name:string) {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+async function Pockemon(id:number) {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
     return await res.json()
+   
 }
